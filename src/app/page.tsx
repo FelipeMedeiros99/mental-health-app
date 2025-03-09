@@ -1,8 +1,9 @@
+import { Box } from "@chakra-ui/react"
 
 export default function Home() {
   return (
-    <>
-      project started
-    </>
+   <Box>
+     project started
+   </Box>
   );
 }
