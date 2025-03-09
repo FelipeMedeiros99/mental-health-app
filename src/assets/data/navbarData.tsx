@@ -5,7 +5,7 @@ import moodMonitor from "../images/navBarImages/mood-monitor.png"
 import settings from "../images/navBarImages/settings.png"
 import relax from "../images/navBarImages/relax.png"
 
-const data = [
+const navbarData = [
   {
     image: home,
     link: "",
@@ -37,3 +37,5 @@ const data = [
     title: "Anjustes",
   },
 ]
+
+export default navbarData
