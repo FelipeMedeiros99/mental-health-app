@@ -1,5 +1,9 @@
-import { Provider } from "@/components/ui/provider";
+"use client"
+
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
 import { Theme } from "@chakra-ui/react"
+
+import "./index.css"
 
 export default function RootLayout({
   children,
@@ -9,9 +13,9 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body>
-        <Provider>
-          <Theme appearance="light">{children}</Theme>
-        </Provider>
+        <ChakraProvider value={defaultSystem}>
+          {children}
+        </ChakraProvider>
       </body>
     </html>
   );
