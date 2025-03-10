@@ -1,14 +1,19 @@
 "use client"
 
-import { Box, Heading, HStack, Text, VStack, Image } from "@chakra-ui/react"
+import Image from "next/image";
+import { Box, Heading, HStack, Text, VStack, Image as ChakraImage } from "@chakra-ui/react"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 import { meditationData } from "@/assets/data/meditationData";
 import navbarData from "@/assets/data/navbarData";
-import Link from "next/link";
 import { moodData } from "@/assets/data/humorData";
 import { positivePhrasesData } from "@/assets/data/positivePhrasesData";
+import style from './style.module.css'
+
+import userImage from "@/assets/images/userImage/user-image.png"
+
 
 interface YouTubeVideoData {
   url: string;
@@ -30,7 +35,6 @@ interface YouTubeVideoData {
 
 export default function Home() {
   const [meditationMetadata, setMeditationMetadata] = useState<YouTubeVideoData[]>([])
-  const [isMeditationLoading, setIsMeditationLoading] = useState(true)
 
   console.log(meditationMetadata)
 
@@ -43,39 +47,36 @@ export default function Home() {
         setMeditationMetadata(result)
       } catch (e) {
         alert("Erro ao carregar videos")
-      } finally {
-        setIsMeditationLoading(false)
       }
     })()
   }, [])
 
 
   return (
-    <VStack padding="7rem 0 3.5rem 0">
+    <VStack padding="5rem 0 3.5rem 0">
 
       <HStack>
-        <VStack>
+        <Image className={style.userImage} src={userImage} alt="foto de perfil"></Image>
+        <VStack alignItems="flex-start">
           <Heading>Bem vindo [Fulano]!</Heading>
           <Text>Comece sua jornada de bem-estar mental</Text>
         </VStack>
       </HStack>
 
 
-      <VStack>
+      <VStack w="100%">
         <Heading>Guias para meditação</Heading>
         <Text>Descubra maneiras de melhorar seu bem-estar</Text>
-        {isMeditationLoading ? <></> :
-          <HStack overflowX="auto">
-            {meditationMetadata.map((data, index) => (
-              <VStack key={index} >
-                <Link href={data.url}>
-                  <Image src={data.thumbnail_url} alt={data.title} />
-                  <Text>{data.title}</Text>
-                </Link>
+        <HStack className={style.containerLinks}>
+          {meditationMetadata.map((data, index) => (
+            <Link key={index} className={style.boxLink} href={data.url} target="_blank">
+              <VStack className={style.imageBox}>
+                <ChakraImage className={style.image} src={data.thumbnail_url} alt={data.title} />
               </VStack>
-            ))}
-          </HStack>
-        }
+              <Text padding="0 1rem 0 1rem">{data.title.substring(0, 1).toLocaleUpperCase()}{data.title.substring(1, 40).toLocaleLowerCase()}...</Text>
+            </Link>
+          ))}
+        </HStack>
       </VStack>
 
       {/* <VStack>
