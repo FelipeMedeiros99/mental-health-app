@@ -1,12 +1,13 @@
 "use client"
 
-import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
-import { Theme } from "@chakra-ui/react"
+import { Provider } from "@/components/ui/provider";
+import { ColorModeProvider } from "@/components/ui/color-mode";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-import "./index.css" 
+import "./index.css"
+import { Theme } from "@chakra-ui/react";
 
 export default function RootLayout({
   children,
@@ -16,11 +17,15 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body>
-        <ChakraProvider value={defaultSystem}>
-          <Header/>
-          {children}
-          <Footer />
-        </ChakraProvider>
+        <ColorModeProvider forcedTheme="light">
+          <Provider>
+            <Theme appearance="light">
+              <Header/>
+              {children}
+              <Footer />
+            </Theme>
+          </Provider>
+        </ColorModeProvider>
       </body>
     </html>
   );

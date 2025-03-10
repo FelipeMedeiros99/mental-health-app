@@ -1,0 +1,16 @@
+.bar{
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.image{
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.container{
+  margin: 0.1rem;  
+}
