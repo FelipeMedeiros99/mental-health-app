@@ -92,9 +92,6 @@ export const meditationData = [
   "https://www.youtube.com/watch?v=TYrpODs6QvM",
   "https://www.youtube.com/watch?v=UhOH4TFqxpo",
   "https://www.youtube.com/watch?v=QQkRN4tjHns",
-  "https://www.youtube.com/watch?v=OuCvUDVoX3M",
-  "https://www.youtube.com/watch?v=QbxPUFl3cuc", 
-  "https://www.youtube.com/watch?v=Kn5Lf7lkXXQ"
 ]
 
 
