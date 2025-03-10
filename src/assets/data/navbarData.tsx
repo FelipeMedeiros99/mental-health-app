@@ -42,7 +42,7 @@ const navbarData: NavbarInterface[] = [
   {
     image: settings,
     link: "",
-    title: "Anjustes",
+    title: "Ajustes",
   },
 ]
 
