@@ -1,11 +1,11 @@
 import { StaticImageData } from "next/image"
 
-import comunity from "../images/navBarImages/comunity.png"
-import consultation from "../images/navBarImages/consultation.png"
-import home from "../images/navBarImages/home.png"
-import moodMonitor from "../images/navBarImages/mood-monitor.png"
-import settings from "../images/navBarImages/settings.png"
-import relax from "../images/navBarImages/relax.png"
+import comunity from "../images/navbarImages/comunity.png"
+import consultation from "../images/navbarImages/consultation.png"
+import home from "../images/navbarImages/home.png"
+import moodMonitor from "../images/navbarImages/mood-monitor.png"
+import settings from "../images/navbarImages/settings.png"
+import relax from "../images/navbarImages/relax.png"
 
 export interface NavbarInterface{
   image: StaticImageData;
