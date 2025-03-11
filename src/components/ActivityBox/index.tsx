@@ -6,6 +6,7 @@ import Link from "next/link";
 import style from "./style.module.css"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Title from "../Title";
 
 export interface YouTubeVideoData {
   url: string;
@@ -53,9 +54,8 @@ export default function ActivityBox({ urls, title, subtitle }: ActivityBoxInterf
   return (
     <>
     { !isDataLoading &&
-    <VStack w="100%" h="">
-      <Heading>{title}</Heading>
-      <Text>{subtitle}</Text>
+    <VStack w="100%" h="" paddingLeft="0.5rem">
+      <Title title={title} subtitle={subtitle}/>
       <HStack className={style.containerLinks}>
         {youtubeMetadata.map((data, index) => (
           <Link key={index} className={style.boxLink} href={data.url} target="_blank">
