@@ -16,12 +16,13 @@
   height: 1.5rem;
 }
 
-.container{
+.linkContainer{
   width: 3.5rem;
   min-width: 3.5rem;
   height: 3.5rem;
   min-height: 3.5rem;
   justify-content: center;
+  align-items: center;
 }
 
 .title{
