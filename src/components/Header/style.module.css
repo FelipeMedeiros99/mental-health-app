@@ -8,6 +8,7 @@
   z-index: 3;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0.1rem 0.1rem #88888845;
 }
 
 .image{
@@ -20,6 +21,7 @@
   min-width: 3.5rem;
   height: 3.5rem;
   min-height: 3.5rem;
+  justify-content: center;
 }
 
 .title{
