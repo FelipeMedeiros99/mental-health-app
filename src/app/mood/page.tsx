@@ -26,6 +26,9 @@ export default function Mood() {
   const { register, handleSubmit, reset } = useForm<MoodSubmitInterface>()
   const onSubmit: SubmitHandler<MoodSubmitInterface> = (data) => saveData(data)
 
+
+  console.log(localStorageMoods)
+
   const saveData = useCallback((data: MoodSubmitInterface) => {
     if (mood.mood && data) {
       const date = new Date()
@@ -56,7 +59,7 @@ export default function Mood() {
   }, [mood])
 
   return (
-      <>
+    <>
       <VStack as="form" className={style.containerBox} onSubmit={handleSubmit(onSubmit)} >
         <Title title="Monitor de humor" />
         <Textarea className={style.textarea} required {...register("text")} placeholder="Como está se sentindo agora?" />
@@ -87,18 +90,21 @@ export default function Mood() {
         <Title title="Humor recente" />
         <For each={localStorageMoods}>
           {(data, index) => (
-            <HStack w="100%" key={index} boxShadow="0 0.1rem 0.1rem #e1e1e1" padding="0.5rem 0">
+            <HStack w="100%" key={index} boxShadow="0 0.1rem 0.1rem #e1e1e1" padding="0.5rem 0" position="relative">
               <VStack borderRadius="5rem" padding="0.5rem" bgColor="#e4e4e4" h="3rem" w="3rem" justifyContent="center">
                 <Text className={style.moodIcon}>{data.icone}</Text>
               </VStack>
-              <VStack alignItems="flex-start">
+              <VStack alignItems="flex-start" overflowX="hidden">
                 <Text fontWeight="500">{data.mood}</Text>
-                <Text color="#888888">{data.text}</Text>
+                <Text color="#888888" whiteSpace="nowrap" overflowX="hidden" textOverflow="ellipsis" width="100%">{data.text}</Text>
               </VStack>
             </HStack>
           )}
         </For>
       </VStack>
-      </>
+
+      <VStack className={style.modal}>
+      </VStack>
+    </>
   )
 }
