@@ -1,0 +1,13 @@
+.image{
+  height: 100vh;
+  width: 100vh;
+  max-width: 30rem;
+  z-index: 1;
+
+}
+
+.fullScreen{
+  width: 100%;
+  min-height: 100%;
+  max-width: 30rem;
+}

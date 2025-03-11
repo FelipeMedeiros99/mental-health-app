@@ -16,7 +16,7 @@ export interface NavbarInterface{
 const navbarData: NavbarInterface[] = [
   {
     image: home,
-    link: "/",
+    link: "home",
     title: "Inicio",
   },
   {
