@@ -21,11 +21,7 @@ export default function RootLayout({
         <ColorModeProvider forcedTheme="light">
           <Provider>
             <Theme className={style.fullScreen} appearance="light">
-              <Header/>
-              <VStack padding="6rem 0.7rem 4.5rem 0.7rem" as="main" minH="100%" w="100%" bgColor="#f6f6f6">
-                {children}
-              </VStack>
-              <Footer />
+              {children}
             </Theme>
           </Provider>
         </ColorModeProvider>
