@@ -4,7 +4,7 @@ import style from "./style.module.css"
 
 interface TitleInterface{
   title: string;
-  subtitle: string;
+  subtitle?: string;
 }
 
 export default function Title({title, subtitle}: TitleInterface){
