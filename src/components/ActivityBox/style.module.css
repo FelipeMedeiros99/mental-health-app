@@ -1,3 +1,10 @@
+.mainContainer{
+  width: 100%;
+  padding: 1rem 0.7rem 2rem 0.7rem; 
+  box-shadow: 0 0 0.5rem #88888845;
+  margin: 0.5rem 0;
+}
+
 .containerLinks{
   padding: 0.5rem 0;
   justify-content: flex-start;

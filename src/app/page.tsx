@@ -1,19 +1,16 @@
 "use client"
 
 import Image from "next/image";
-import { Box, Heading, HStack, Text, VStack, Image as ChakraImage } from "@chakra-ui/react"
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Link from "next/link";
+import { HStack, VStack} from "@chakra-ui/react"
 
 import { meditationData } from "@/assets/data/meditationData";
 import userImage from "@/assets/images/userImage/user-image.png"
-import ActivityBox, { YouTubeVideoData } from "@/components/ActivityBox";
-
-import style from './style.module.css'
+import ActivityBox from "@/components/ActivityBox";
 import { yogaData } from "@/assets/data/yogaData";
 import { positivePhrasesData } from "@/assets/data/positivePhrasesData";
 import Title from "@/components/Title";
+
+import style from './style.module.css'
 
 export default function Home() {
 

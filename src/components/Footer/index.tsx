@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, HStack } from "@chakra-ui/react";
+import { HStack } from "@chakra-ui/react";
 import Image from "next/image";
 
 import style from "./style.module.css"

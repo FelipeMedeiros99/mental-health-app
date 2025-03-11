@@ -1,4 +1,4 @@
-import { Heading, HStack, Text, VStack } from "@chakra-ui/react";
+import { HStack, Text, VStack } from "@chakra-ui/react";
 
 import navbarData from "@/assets/data/navbarData";
 import Image from "next/image";

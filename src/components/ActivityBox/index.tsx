@@ -1,6 +1,6 @@
 "use client"
 
-import { Heading, HStack, Text, VStack, Image } from "@chakra-ui/react";
+import { HStack, Text, VStack, Image } from "@chakra-ui/react";
 import Link from "next/link";
 
 import style from "./style.module.css"
@@ -49,12 +49,12 @@ export default function ActivityBox({ urls, title, subtitle }: ActivityBoxInterf
         setIsDataLoading(false)
       }
     })()
-  }, [])
+  }, [urls])
 
   return (
     <>
     { !isDataLoading &&
-    <VStack w="100%" paddingLeft="0.7rem">
+    <VStack className={style.mainContainer} w="100%" paddingLeft="0.7rem">
       <Title title={title} subtitle={subtitle}/>
       <HStack className={style.containerLinks}>
         {youtubeMetadata.map((data, index) => (
