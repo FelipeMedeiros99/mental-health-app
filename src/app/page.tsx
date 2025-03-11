@@ -7,77 +7,27 @@ import axios from "axios";
 import Link from "next/link";
 
 import { meditationData } from "@/assets/data/meditationData";
-import navbarData from "@/assets/data/navbarData";
-import { moodData } from "@/assets/data/humorData";
-import { positivePhrasesData } from "@/assets/data/positivePhrasesData";
-import style from './style.module.css'
-
 import userImage from "@/assets/images/userImage/user-image.png"
+import ActivityBox, { YouTubeVideoData } from "@/components/ActivityBox";
 
-
-interface YouTubeVideoData {
-  url: string;
-  thumbnail_height: number;
-  version: string;
-  author_url: string;
-  thumbnail_url: string;
-  author_name: string;
-  title: string;
-  height: number;
-  provider_url: string;
-  type: string;
-  html: string;
-  thumbnail_width: number;
-  width: number;
-  provider_name: string;
-}
-
+import style from './style.module.css'
+import { yogaData } from "@/assets/data/yogaData";
+import { positivePhrasesData } from "@/assets/data/positivePhrasesData";
+import Title from "@/components/Title";
 
 export default function Home() {
-  const [meditationMetadata, setMeditationMetadata] = useState<YouTubeVideoData[]>([])
-
-  console.log(meditationMetadata)
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const videosData = meditationData.map(url => axios.get<YouTubeVideoData>(`https://noembed.com/embed?url=${url}`))
-        const responses = await Promise.all(videosData);
-        const result: YouTubeVideoData[] = responses.map(response => response.data);
-        setMeditationMetadata(result)
-      } catch (e) {
-        alert("Erro ao carregar videos")
-      }
-    })()
-  }, [])
-
 
   return (
     <VStack padding="5rem 0 3.5rem 0">
 
-      <HStack>
+      <HStack w="100%">
         <Image className={style.userImage} src={userImage} alt="foto de perfil"></Image>
-        <VStack alignItems="flex-start">
-          <Heading>Bem vindo [Fulano]!</Heading>
-          <Text>Comece sua jornada de bem-estar mental</Text>
-        </VStack>
+        <Title title="Bem vindo, Fulano!" subtitle="Comece sua jornada de bem-estar mental"/>
       </HStack>
 
-
-      <VStack w="100%">
-        <Heading>Guias para meditação</Heading>
-        <Text>Descubra maneiras de melhorar seu bem-estar</Text>
-        <HStack className={style.containerLinks}>
-          {meditationMetadata.map((data, index) => (
-            <Link key={index} className={style.boxLink} href={data.url} target="_blank">
-              <VStack className={style.imageBox}>
-                <ChakraImage className={style.image} src={data.thumbnail_url} alt={data.title} />
-              </VStack>
-              <Text padding="0 1rem 0 1rem">{data.title.substring(0, 1).toLocaleUpperCase()}{data.title.substring(1, 40).toLocaleLowerCase()}...</Text>
-            </Link>
-          ))}
-        </HStack>
-      </VStack>
+      <ActivityBox urls={meditationData} title="Guias para meditação" subtitle="Aprenda técnicas para relaxamento e mindfulness." />
+      <ActivityBox urls={yogaData} title="Guias para yoga" subtitle="Pratique posturas e movimentos para equilíbrio e bem-estar." />
+      <ActivityBox urls={positivePhrasesData} title="Frases positivas" subtitle="Reprograme sua mente com palavras poderosas." />
 
       {/* <VStack>
         <Heading>Guias para yoga</Heading>
