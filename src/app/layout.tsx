@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
-      <body>
+    <html lang="pt-br" style={{width: "100%"}}>
+      <body style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
         <ColorModeProvider forcedTheme="light">
           <Provider>
             <Theme className={style.fullScreen} appearance="light">

@@ -1,5 +1,6 @@
 .bar{
   width: 100%;
+  max-width: 30rem;
   height: 3.5rem;
   background-color: rgb(255, 255, 255);
   position: fixed;
