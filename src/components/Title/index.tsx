@@ -9,7 +9,7 @@ interface TitleInterface{
 
 export default function Title({title, subtitle}: TitleInterface){
   return(
-    <VStack alignItems="flex-start" justifyContent="center">
+    <VStack alignItems="flex-start" w="100%">
       <Heading className={style.h2}>{title}</Heading>
       <Text className={style.p}>{subtitle}</Text>
     </VStack>
