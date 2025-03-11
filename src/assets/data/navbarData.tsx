@@ -16,12 +16,12 @@ export interface NavbarInterface{
 const navbarData: NavbarInterface[] = [
   {
     image: home,
-    link: "",
+    link: "/",
     title: "Inicio",
   },
   {
     image: moodMonitor,
-    link: "",
+    link: "mood",
     title: "Humor",
   },
   {
