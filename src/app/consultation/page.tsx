@@ -13,7 +13,8 @@ export default function Consultation(){
 
   const router = useRouter()
   const [message, setMessage] = useState("")
-  const wppLink = `https://wa.me/5598987835523?text=${encodeURIComponent(message)}`
+  const fullMessage = `Olá, gostaria de marcar uma consulta \nMotivo: ${message}`
+  const wppLink = `https://wa.me/5598987835523?text=${encodeURIComponent(fullMessage)}`
 
   return(
     <VStack className={style.containerBox}>
