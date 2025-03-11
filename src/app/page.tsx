@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <>
-      <HStack w="100%" padding="0 0.7rem">
+      <HStack w="100%">
         <Image className={style.userImage} src={userImage} alt="foto de perfil"></Image>
         <Title title="Bem vindo, Fulano!" subtitle="Comece sua jornada de bem-estar mental"/>
       </HStack>
