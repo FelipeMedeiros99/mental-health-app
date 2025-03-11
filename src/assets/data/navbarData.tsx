@@ -17,12 +17,12 @@ const navbarData: NavbarInterface[] = [
   {
     image: home,
     link: "",
-    title: "Tela inicial",
+    title: "Inicio",
   },
   {
     image: moodMonitor,
     link: "",
-    title: "Monitor humor",
+    title: "Humor",
   },
   {
     image: relax,

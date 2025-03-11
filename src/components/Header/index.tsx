@@ -12,7 +12,7 @@ export default function Header() {
           <VStack>
             <Image className={style.image} src={data.image} alt={data.title} />
           </VStack>
-          <Text>{data.title}</Text>
+          <Text className={style.title}>{data.title}</Text>
         </VStack>
       ))}
     </HStack>
