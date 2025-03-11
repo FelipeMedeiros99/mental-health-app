@@ -25,7 +25,7 @@ export default function Consultation(){
     <VStack className={style.containerBox}>
       <Title title="Marque sua consulta"/>
       <Textarea className={style.textarea} placeholder="Como podemos te ajudar?" value={message} onChange={(e)=>setMessage(e.target.value)}/>
-      <Link type="submit" href={wppLink} target="_blank"><Button>Marcar consulta <FaWhatsapp /></Button></Link>
+      <Link type="submit" href={wppLink} target="_blank" style={{marginTop: "1rem"}}><Button bgColor="#43EB61" color="white" fontWeight="700">Marcar consulta < FaWhatsapp/></Button></Link>
     </VStack>
   )
 }
