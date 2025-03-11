@@ -7,9 +7,9 @@ interface TitleInterface{
   subtitle?: string;
 }
 
-export default function Title({title, subtitle}: TitleInterface){
+export default function Title({title, subtitle, ...props}: TitleInterface){
   return(
-    <VStack alignItems="flex-start" w="100%">
+    <VStack alignItems="flex-start" w="100%" {...props}>
       <Heading className={style.h2}>{title}</Heading>
       <Text className={style.p}>{subtitle}</Text>
     </VStack>
