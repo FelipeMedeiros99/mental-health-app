@@ -54,7 +54,7 @@ export default function ActivityBox({ urls, title, subtitle }: ActivityBoxInterf
   return (
     <>
     { !isDataLoading &&
-    <VStack w="100%" h="" paddingLeft="0.5rem">
+    <VStack w="100%" paddingLeft="0.7rem">
       <Title title={title} subtitle={subtitle}/>
       <HStack className={style.containerLinks}>
         {youtubeMetadata.map((data, index) => (
