@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 import "./index.css"
-import { Theme } from "@chakra-ui/react";
+import { Theme, VStack } from "@chakra-ui/react";
 
 export default function RootLayout({
   children,
@@ -21,7 +21,9 @@ export default function RootLayout({
           <Provider>
             <Theme appearance="light">
               <Header/>
-              {children}
+              <VStack padding="5rem 0 3.5rem 0" as="main">
+                {children}
+              </VStack>
               <Footer />
             </Theme>
           </Provider>
