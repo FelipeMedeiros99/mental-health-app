@@ -1,8 +1,9 @@
 import { Heading, Text, VStack } from "@chakra-ui/react";
 
 import style from "./style.module.css"
+import { ReactNode } from "react";
 
-interface TitleInterface{
+interface TitleInterface extends React.ComponentProps<typeof VStack>{
   title: string;
   subtitle?: string;
 }
