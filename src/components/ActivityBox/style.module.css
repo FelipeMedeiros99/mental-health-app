@@ -1,4 +1,6 @@
 .mainContainer{
+  background-color: white;
+  border-radius: 0.5rem;
   width: 100%;
   padding: 1rem 0.7rem 2rem 0.7rem; 
   box-shadow: 0 0 0.5rem #88888845;

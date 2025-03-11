@@ -16,13 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br" style={{width: "100%"}}>
-      <body style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+    <html lang="pt-br" style={{width: "100%", minHeight: "100%"}}>
+      <body style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", minHeight: "100%", height: "auto"}}>
         <ColorModeProvider forcedTheme="light">
           <Provider>
             <Theme className={style.fullScreen} appearance="light">
               <Header/>
-              <VStack padding="6rem 0.7rem 3.5rem 0.7rem" as="main" h="100%" w="100%">
+              <VStack padding="6rem 0.7rem 4.5rem 0.7rem" as="main" h="100%" w="100%" bgColor="#f6f6f6">
                 {children}
               </VStack>
               <Footer />
