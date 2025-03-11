@@ -56,14 +56,12 @@ export default function Mood() {
   }, [mood])
 
   return (
-    <VStack w="100%">
-      <VStack as="form" w="100%" alignItems="flex-start" onSubmit={handleSubmit(onSubmit)}>
+      <>
+      <VStack as="form" className={style.containerBox} onSubmit={handleSubmit(onSubmit)} >
         <Title title="Monitor de humor" />
         <Textarea className={style.textarea} required {...register("text")} placeholder="Como está se sentindo agora?" />
-        <HStack>
-
+        <HStack >
           <Text>Qual emoção te representa mais nesse momento?</Text>
-
           <MenuRoot>
             <MenuTrigger asChild>
               <Button variant="outline" border="1px solid">
@@ -80,14 +78,12 @@ export default function Mood() {
               </For>
             </MenuContent>
           </MenuRoot>
-
           {mood.mood && <Text>{mood.icone} - {mood.mood}</Text>}
         </HStack>
-
         <Button bgColor="white" color="black" border="solid 1px black" type="submit" w="100%">Salvar</Button>
       </VStack>
 
-      <VStack w="100%">
+      <VStack className={style.containerBox}>
         <Title title="Humor recente" />
         <For each={localStorageMoods}>
           {(data, index) => (
@@ -103,7 +99,6 @@ export default function Mood() {
           )}
         </For>
       </VStack>
-
-    </VStack>
+      </>
   )
 }
