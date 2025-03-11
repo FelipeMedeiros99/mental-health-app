@@ -21,7 +21,7 @@ export default function RootLayout({
           <Provider>
             <Theme appearance="light">
               <Header/>
-              <VStack padding="5rem 0 3.5rem 0" as="main">
+              <VStack padding="6rem 0 3.5rem 0" as="main">
                 {children}
               </VStack>
               <Footer />
