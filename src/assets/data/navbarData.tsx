@@ -26,17 +26,17 @@ const navbarData: NavbarInterface[] = [
   },
   {
     image: relax,
-    link: "",
+    link: "relax",
     title: "Relaxar",
   },
   {
     image: consultation,
-    link: "",
+    link: "consultation",
     title: "Consultas",
   },
   {
     image: comunity,
-    link: "",
+    link: "comunity",
     title: "Comunidade",
   },
   {

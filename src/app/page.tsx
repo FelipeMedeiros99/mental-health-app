@@ -1,28 +1,28 @@
-"use client"
-
+import { Text, VStack } from "@chakra-ui/react";
 import Image from "next/image";
-import { HStack, VStack} from "@chakra-ui/react"
 
-import { meditationData } from "@/assets/data/meditationData";
-import userImage from "@/assets/images/userImage/user-image.png"
-import ActivityBox from "@/components/ActivityBox";
-import { yogaData } from "@/assets/data/yogaData";
-import { positivePhrasesData } from "@/assets/data/positivePhrasesData";
-import Title from "@/components/Title";
+import Logo from "@/assets/images/homeImage/relax-image.gif"
 
-import style from './style.module.css'
+import style from "./style.module.css"
 
-export default function Home() {
-
+export default function Page() {
   return (
-    <>
-      <HStack w="100%">
-        <Image className={style.userImage} src={userImage} alt="foto de perfil"></Image>
-        <Title title="Bem vindo, Fulano!" subtitle="Comece sua jornada de bem-estar mental"/>
-      </HStack>
-      <ActivityBox urls={meditationData} title="Guias para meditação" subtitle="Aprenda técnicas para relaxamento e mindfulness." />
-      <ActivityBox urls={yogaData} title="Guias para yoga" subtitle="Pratique posturas e movimentos para equilíbrio e bem-estar." />
-      <ActivityBox urls={positivePhrasesData} title="Frases positivas" subtitle="Reprograme sua mente com palavras poderosas." />
-    </>
-  );
+    <VStack h="100%" w="100%" position="fixed" top="0" >
+      <Image className={style.image} src={Logo} alt="Logo do app" />
+
+      <VStack position="absolute" top="50%" translate="0 -50%" color="white" w="100%" padding="0.7rem" textAlign="center">
+
+        <Text fontSize="xl" fontWeight="bold">
+          Olá, [Fulano]! 👋
+        </Text>
+        <Text fontSize="lg">Seja bem-vindo ao nosso app de bem-estar!</Text>
+        <Text fontSize="md">
+          Aqui, queremos ajudar você a cultivar uma mente mais leve e equilibrada, 
+          por meio de práticas diárias de autocuidado e mentalização. 💙
+        </Text>
+
+
+      </VStack>
+    </VStack>
+  )
 }
