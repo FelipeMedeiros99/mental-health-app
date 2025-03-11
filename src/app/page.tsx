@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <VStack padding="5rem 0 3.5rem 0">
 
-      <HStack w="100%">
+      <HStack w="100%" padding="0 0.7rem">
         <Image className={style.userImage} src={userImage} alt="foto de perfil"></Image>
         <Title title="Bem vindo, Fulano!" subtitle="Comece sua jornada de bem-estar mental"/>
       </HStack>
