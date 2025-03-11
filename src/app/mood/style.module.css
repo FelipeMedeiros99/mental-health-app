@@ -1,0 +1,22 @@
+.mainContainer{
+
+}
+
+.textarea{
+  resize: none;
+  min-height: 6rem;
+}
+
+.menuContentIcons{
+  width: 10rem;
+  height: 10rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.moodIcon{
+  border-radius: 5rem;
+  font-size: 1.5rem;
+}
