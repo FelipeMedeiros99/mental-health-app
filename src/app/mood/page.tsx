@@ -26,9 +26,6 @@ export default function Mood() {
   const { register, handleSubmit, reset } = useForm<MoodSubmitInterface>()
   const onSubmit: SubmitHandler<MoodSubmitInterface> = (data) => saveData(data)
 
-
-  console.log(localStorageMoods)
-
   const saveData = useCallback((data: MoodSubmitInterface) => {
     if (mood.mood && data) {
       const date = new Date()
@@ -67,7 +64,7 @@ export default function Mood() {
           <Text>Qual emoção te representa mais nesse momento?</Text>
           <MenuRoot>
             <MenuTrigger asChild>
-              <Button variant="outline" border="1px solid">
+              <Button>
                 Selecionar
               </Button>
             </MenuTrigger>
@@ -81,9 +78,9 @@ export default function Mood() {
               </For>
             </MenuContent>
           </MenuRoot>
-          {mood.mood && <Text>{mood.icone} - {mood.mood}</Text>}
         </HStack>
-        <Button bgColor="white" color="black" border="solid 1px black" type="submit" w="100%">Salvar</Button>
+          {mood.mood && <Text>{mood.icone} - {mood.mood}</Text>}
+        <Button type="submit" w="100%">Salvar</Button>
       </VStack>
 
       <VStack className={style.containerBox}>
