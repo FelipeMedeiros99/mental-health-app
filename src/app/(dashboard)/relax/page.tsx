@@ -14,11 +14,20 @@ import style from './style.module.css'
 
 export default function Relax() {
 
+  const welcome = (): string =>{
+    try{
+      const userName = JSON.parse(localStorage.getItem("mentalHealthApp")!).userName
+      return userName?`Bem vindo, ${userName}!`: "Bem vindo!"
+    }catch(e){
+      return "Bem vindo!"
+    }
+  }
+
   return (
     <>
       <HStack w="100%">
         <Image className={style.userImage} src={userImage} alt="foto de perfil"></Image>
-        <Title title="Bem vindo, Fulano!" subtitle="Comece sua jornada de bem-estar mental"/>
+        <Title title={welcome()} subtitle="Comece sua jornada de bem-estar mental"/>
       </HStack>
       <ActivityBox urls={meditationData} title="Guias para meditação" subtitle="Aprenda técnicas para relaxamento e mindfulness." />
       <ActivityBox urls={yogaData} title="Guias para yoga" subtitle="Pratique posturas e movimentos para equilíbrio e bem-estar." />
