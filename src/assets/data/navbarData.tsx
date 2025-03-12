@@ -41,7 +41,7 @@ const navbarData: NavbarInterface[] = [
   },
   {
     image: settings,
-    link: "",
+    link: "settings",
     title: "Ajustes",
   },
 ]
