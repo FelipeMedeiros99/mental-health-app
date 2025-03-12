@@ -19,7 +19,7 @@ export default function RootLayout({
       <body style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", minHeight: "100%"}}>
         <ColorModeProvider forcedTheme="light">
           <Provider>
-            <Theme className={style.fullScreen} appearance="light">
+            <Theme className={style.fullScreen} appearance="light" style={{backgroundColor: "#f6f6f6"}}>
               {children}
             </Theme>
           </Provider>
