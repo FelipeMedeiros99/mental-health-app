@@ -3,10 +3,8 @@
 import { Provider } from "@/components/ui/provider";
 import { ColorModeProvider } from "@/components/ui/color-mode";
 import { Theme } from "@chakra-ui/react";
-import Image from "next/image";
 
 import style from "./style.module.css"
-import backgroundImage from "@/assets/images/footerImages/icon.png"
 
 import "./index.css"
 

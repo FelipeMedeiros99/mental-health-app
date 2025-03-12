@@ -1,8 +1,6 @@
 "use client"
 
-import { Provider } from "@/components/ui/provider";
-import { ColorModeProvider } from "@/components/ui/color-mode";
-import { Theme, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
