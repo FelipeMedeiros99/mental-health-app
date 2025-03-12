@@ -1,13 +1,72 @@
+"use client"
+
+import { Button, Field, Input, Text, VStack } from "@chakra-ui/react";
+import Image from "next/image";
+import { SubmitHandler, useForm } from "react-hook-form";
+
 import ContainerBox from "@/components/ContainerBox";
 import Footer from "@/components/Footer";
 import Title from "@/components/Title";
-import { VStack } from "@chakra-ui/react";
+import icone from "@/assets/images/footerImages/icon.png"
+import { useRouter } from "next/navigation";
 
-export default function SignIn(){
-  return(
-    <VStack h="100%" w="100%" alignItems="center" justifyContent="center">
-      <Title title="Olá, seja bem vindo! 😀" subtitle="Se apresente para nós" alignItems="center"/>
-      <Footer/>
+interface Name{
+  name: string
+}
+
+interface MentalHeathDataInterface{
+  userName: string;
+  moods: {
+    mood: string;
+    icone: string;
+    text: string;
+  }[]
+}
+
+export default function SignIn() {
+  const {register, handleSubmit} = useForm<Name>()
+  const router = useRouter()
+  const onSubmit: SubmitHandler<Name> = (data) => {
+    let mentalHeathData: MentalHeathDataInterface = {userName: data.name, moods: []};
+    let localStorageData = localStorage.getItem("mentalHeathApp");
+
+    if(!localStorageData){
+      localStorage.setItem("mentalHeathApp", JSON.stringify(mentalHeathData));
+    }else{
+      const localStorageParsed: MentalHeathDataInterface = JSON.parse(localStorageData);
+
+      if(!localStorageParsed.userName || !localStorageParsed.moods){
+        localStorage.setItem("mentalHeathApp", JSON.stringify(mentalHeathData));
+      }else{
+        localStorage.setItem("mentalHeathApp", JSON.stringify({...localStorageParsed, userName: mentalHeathData.userName}))
+      }
+    }
+
+    router.push("/home")
+  }
+
+
+  return (
+    <VStack h="100%" w="100%" alignItems="center" justifyContent="center" padding="1rem" backgroundImage={"./icon.png"}>
+      <Image src={icone} alt="Icone app" style={{position: "fixed", height: "100%", width: "auto", objectFit: "cover"}}/>
+      <ContainerBox zIndex="2">
+        <Title
+          textAlign="center"
+          title="Seja muito bem-vindo! 😊"
+          subtitle="Estamos felizes em te receber. Como podemos te chamar?"
+          alignItems="center"
+        />
+        <VStack as="form" w="100%" alignItems="flex-start" onSubmit={handleSubmit(onSubmit)}>
+          <Field.Root>
+            <Field.Label>
+              Digite seu nome abaixo:
+            </Field.Label>
+            <Input required placeholder="Seu nome aqui..." />
+          </Field.Root>
+          <Button type="submit" w="100%">Entrar</Button>
+        </VStack>
+      </ContainerBox>
+      <Footer />
     </VStack>
-  )
+  );
 }

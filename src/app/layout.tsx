@@ -2,13 +2,14 @@
 
 import { Provider } from "@/components/ui/provider";
 import { ColorModeProvider } from "@/components/ui/color-mode";
-import { Theme, VStack } from "@chakra-ui/react";
+import { Theme } from "@chakra-ui/react";
+import Image from "next/image";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import style from "./style.module.css"
+import backgroundImage from "@/assets/images/footerImages/icon.png"
 
 import "./index.css"
-import style from "./style.module.css"
+
 
 export default function RootLayout({
   children,
