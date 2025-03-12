@@ -51,7 +51,7 @@ export default function SignIn() {
 
   return (
     <VStack h="100%" w="100%" alignItems="center" justifyContent="center" padding="1rem" backgroundImage={"./icon.png"}>
-      <Image src={icone} alt="Icone app" style={{position: "fixed", height: "100%", width: "auto", objectFit: "cover"}}/>
+      <Image src={icone} alt="Icone app" style={{position: "fixed", height: "100%", width: "auto", maxWidth: "30rem", objectFit: "cover"}}/>
       <ContainerBox zIndex="2">
         <Title
           textAlign="center"
