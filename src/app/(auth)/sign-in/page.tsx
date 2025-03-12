@@ -14,31 +14,33 @@ interface Name{
   name: string
 }
 
-interface MentalHeathDataInterface{
+export interface MentalHeathDataInterface{
   userName: string;
   moods: {
+    createdAt: string;
     mood: string;
-    icone: string;
     text: string;
+    icone: string;
   }[]
 }
 
 export default function SignIn() {
-  const {register, handleSubmit} = useForm<Name>()
-  const router = useRouter()
+  const {register, handleSubmit} = useForm<Name>();
+  const router = useRouter();
+
   const onSubmit: SubmitHandler<Name> = (data) => {
     let mentalHeathData: MentalHeathDataInterface = {userName: data.name, moods: []};
-    let localStorageData = localStorage.getItem("mentalHeathApp");
+    let localStorageData = localStorage.getItem("mentalHealthApp");
 
     if(!localStorageData){
-      localStorage.setItem("mentalHeathApp", JSON.stringify(mentalHeathData));
+      localStorage.setItem("mentalHealthApp", JSON.stringify(mentalHeathData));
     }else{
       const localStorageParsed: MentalHeathDataInterface = JSON.parse(localStorageData);
 
       if(!localStorageParsed.userName || !localStorageParsed.moods){
-        localStorage.setItem("mentalHeathApp", JSON.stringify(mentalHeathData));
+        localStorage.setItem("mentalHealthApp", JSON.stringify(mentalHeathData));
       }else{
-        localStorage.setItem("mentalHeathApp", JSON.stringify({...localStorageParsed, userName: mentalHeathData.userName}))
+        localStorage.setItem("mentalHealthApp", JSON.stringify({...localStorageParsed, userName: mentalHeathData.userName}))
       }
     }
 
@@ -61,7 +63,7 @@ export default function SignIn() {
             <Field.Label>
               Digite seu nome abaixo:
             </Field.Label>
-            <Input required placeholder="Seu nome aqui..." />
+            <Input required placeholder="Seu nome aqui..." {...register("name")}/>
           </Field.Root>
           <Button type="submit" w="100%">Entrar</Button>
         </VStack>
