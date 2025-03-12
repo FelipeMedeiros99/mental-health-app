@@ -8,21 +8,15 @@ import { useCallback, useEffect, useState } from "react";
 import { moodsIconsData, MoodsIconsDataInterface } from "@/assets/data/moodsIconsData";
 
 import style from "./style.module.css"
+import { MentalHeathDataInterface } from "@/app/(auth)/sign-in/page";
 
 interface MoodSubmitInterface {
   text: string
 }
 
-interface LocalStorageMoodData {
-  createdAt: string;
-  mood: string;
-  text: string;
-  icone: string;
-}
-
 export default function Mood() {
   const [mood, setMood] = useState<MoodsIconsDataInterface>({ mood: "", icone: "" })
-  const [localStorageMoods, setLocalStorageMoods] = useState<LocalStorageMoodData[]>([])
+  const [localStorageMoods, setLocalStorageMoods] = useState<MentalHeathDataInterface>({userName: "", moods: []})
   const { register, handleSubmit, reset } = useForm<MoodSubmitInterface>()
   const onSubmit: SubmitHandler<MoodSubmitInterface> = (data) => saveData(data)
 
@@ -30,8 +24,8 @@ export default function Mood() {
     if (mood.mood && data) {
       const date = new Date()
       const localStorageData = JSON.parse(localStorage.getItem("mentalHealthApp")!)
-      localStorageData.unshift({ ...mood, text: data.text, createdAt: date })
-      console.log(localStorageData)
+      console.log("local storage data: ", localStorageData)
+      localStorageData.moods.unshift({ ...mood, text: data.text, createdAt: date })
       localStorage.setItem("mentalHealthApp", JSON.stringify(localStorageData))
       reset()
       setMood({ mood: "", icone: "" })
@@ -46,10 +40,9 @@ export default function Mood() {
 
   useEffect(() => {
     try {
-      console.log("chamado")
       const dataLocalStorage = localStorage.getItem("mentalHealthApp")
       if (dataLocalStorage) setLocalStorageMoods(JSON.parse(dataLocalStorage));
-      else localStorage.setItem("mentalHealthApp", JSON.stringify([]))
+      else localStorage.setItem("mentalHealthApp", JSON.stringify(localStorageMoods))
     } catch (e) {
       console.log(e)
     }
@@ -85,7 +78,7 @@ export default function Mood() {
 
       <VStack className={style.containerBox}>
         <Title title="Humor recente" />
-        <For each={localStorageMoods}>
+        <For each={localStorageMoods.moods}>
           {(data, index) => (
             <HStack w="100%" key={index} boxShadow="0 0.1rem 0.1rem #e1e1e1" padding="0.5rem 0" position="relative">
               <VStack borderRadius="5rem" padding="0.5rem" bgColor="#e4e4e4" h="3rem" w="3rem" justifyContent="center">
