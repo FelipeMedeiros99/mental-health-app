@@ -9,7 +9,7 @@ import "./index.css"
 
 
 export const metadata: Metadata = {
-  title: "Meu Site",
+  title: "App Saúde Mental",
   icons: {
     icon: "/icon.png",
   },
