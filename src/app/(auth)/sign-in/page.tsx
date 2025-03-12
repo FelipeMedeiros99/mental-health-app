@@ -21,6 +21,7 @@ export interface MentalHeathDataInterface{
     mood: string;
     text: string;
     icone: string;
+    userName: string;
   }[]
 }
 

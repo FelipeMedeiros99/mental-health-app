@@ -25,7 +25,7 @@ export default function Mood() {
       const date = new Date()
       const localStorageData = JSON.parse(localStorage.getItem("mentalHealthApp")!)
       console.log("local storage data: ", localStorageData)
-      localStorageData.moods.unshift({ ...mood, text: data.text, createdAt: date })
+      localStorageData.moods.unshift({ ...mood, text: data.text, createdAt: date, userName: localStorageData.userName })
       localStorage.setItem("mentalHealthApp", JSON.stringify(localStorageData))
       reset()
       setMood({ mood: "", icone: "" })
@@ -80,6 +80,8 @@ export default function Mood() {
         <Title title="Humor recente" />
         <For each={localStorageMoods.moods}>
           {(data, index) => (
+            <>
+            {data.userName === localStorageMoods.userName && 
             <HStack w="100%" key={index} boxShadow="0 0.1rem 0.1rem #e1e1e1" padding="0.5rem 0" position="relative">
               <VStack borderRadius="5rem" padding="0.5rem" bgColor="#e4e4e4" h="3rem" w="3rem" justifyContent="center">
                 <Text className={style.moodIcon}>{data.icone}</Text>
@@ -89,6 +91,8 @@ export default function Mood() {
                 <Text color="#888888" whiteSpace="nowrap" overflowX="hidden" textOverflow="ellipsis" width="100%">{data.text}</Text>
               </VStack>
             </HStack>
+            }
+            </>
           )}
         </For>
       </VStack>
