@@ -1,13 +1,19 @@
-"use client"
-
 import { Provider } from "@/components/ui/provider";
 import { ColorModeProvider } from "@/components/ui/color-mode";
 import { Theme } from "@chakra-ui/react";
+import type { Metadata } from "next";
 
 import style from "./style.module.css"
 
 import "./index.css"
 
+
+export const metadata: Metadata = {
+  title: "Meu Site",
+  icons: {
+    icon: "/icon.png",
+  },
+};
 
 export default function RootLayout({
   children,
