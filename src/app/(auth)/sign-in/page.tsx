@@ -30,7 +30,7 @@ export default function SignIn() {
   const router = useRouter();
 
   const onSubmit: SubmitHandler<Name> = (data) => {
-    let mentalHeathData: MentalHeathDataInterface = {userName: data.name, moods: []};
+    let mentalHeathData: MentalHeathDataInterface = {userName: data.name.trim(), moods: []};
     let localStorageData = localStorage.getItem("mentalHealthApp");
 
     if(!localStorageData){
