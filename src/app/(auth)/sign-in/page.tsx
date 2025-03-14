@@ -80,7 +80,7 @@ export default function SignIn() {
             <Field.Label>
               Senha:
             </Field.Label>
-            <Input required borderRadius="0.7rem" type="password" placeholder="Seu nome aqui..." {...register("name")}/>
+            <Input required borderRadius="0.7rem" type="password" placeholder="Seu nome aqui..."/>
           </Field.Root>
 
           <Box w="100%" padding="0.5rem 1rem">
