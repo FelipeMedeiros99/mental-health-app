@@ -7,7 +7,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import ContainerBox from "@/components/ContainerBox";
 import Footer from "@/components/Footer";
 import Title from "@/components/Title";
-import icone from "@/assets/images/footerImages/icon.png"
+import icone from "@/assets/images/logo.png"
 import { useRouter } from "next/navigation";
 
 interface Name{
@@ -50,8 +50,8 @@ export default function SignIn() {
 
 
   return (
-    <VStack h="100%" w="100%" alignItems="center" justifyContent="center" padding="1rem" backgroundImage={"./icon.png"}>
-      <Image src={icone} alt="Icone app" style={{position: "fixed", height: "100%", width: "auto", maxWidth: "30rem", objectFit: "cover"}}/>
+    <VStack h="100%" w="100%" padding="1rem" bgColor="white">
+      <Image src={icone} alt="Icone app" style={{width: "auto", maxWidth: "18rem", objectFit: "cover"}}/>
       <ContainerBox zIndex="2">
         <Title
           textAlign="center"
