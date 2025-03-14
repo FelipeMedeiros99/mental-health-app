@@ -1,11 +1,11 @@
 "use client"
 
-import { Button, Field, HStack, Input, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Field, HStack, Input, VStack } from "@chakra-ui/react";
+// import { PasswordInput } from "@/components/ui/password-input";
 import Image from "next/image";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 
-import ContainerBox from "@/components/ContainerBox";
 import Footer from "@/components/Footer";
 import Title from "@/components/Title";
 import icone from "@/assets/images/logo.png"
@@ -51,9 +51,8 @@ export default function SignIn() {
     router.push("/home")
   }
 
-
   return (
-    <VStack h="100%" w="100%" padding="1rem">
+    <VStack h="100%" w="100%" padding="1rem" bgColor="white">
       <Image src={icone} alt="Icone app" style={{width: "10rem", maxWidth: "100%", objectFit: "cover"}}/>
 
         <Title
@@ -64,20 +63,31 @@ export default function SignIn() {
           fontSize="1rem"
         />
 
-        <VStack as="form" w="100%" alignItems="flex-start" onSubmit={handleSubmit(onSubmit)}>
-          <Field.Root>
-            <Field.Label>
-              Digite seu nome abaixo:
-            </Field.Label>
-            <Input required placeholder="Seu nome aqui..." {...register("name")}/>
-          </Field.Root>
-          <Button type="submit" w="100%">Entrar</Button>
-        </VStack>
-
-        <HStack w="10rem" justifyContent="space-between" marginTop="3rem">
+        <HStack w="10rem" justifyContent="space-between" marginTop="2rem">
           <Image src={facebook} alt="login com o facebook" style={{width: "2rem", padding: "0.2rem", backgroundColor: "white", borderRadius: "5rem"}}/>
           <Image src={google} alt="login com o gmail" style={{width: "2rem", padding: "0.2rem", backgroundColor: "white", borderRadius: "5rem"}}/>
         </HStack>
+
+        <VStack as="form" w="100%" alignItems="flex-start" marginTop="1rem" onSubmit={handleSubmit(onSubmit)}>
+          <Field.Root padding="0 1rem">
+            <Field.Label>
+              Usuário:
+            </Field.Label>
+            <Input required borderRadius="0.7rem" placeholder="Seu nome aqui..." {...register("name")}/>
+          </Field.Root>
+          
+          <Field.Root padding="0 1rem">
+            <Field.Label>
+              Senha:
+            </Field.Label>
+            <Input required borderRadius="0.7rem" type="password" placeholder="Seu nome aqui..." {...register("name")}/>
+          </Field.Root>
+
+          <Box w="100%" padding="0.5rem 1rem">
+            <Button type="submit" w="100%" padding="0 1rem">Entrar</Button>
+          </Box>
+        </VStack>
+
 
       <Footer />
     </VStack>
