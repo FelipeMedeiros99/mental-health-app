@@ -20,11 +20,12 @@ export default function Mood() {
   const { register, handleSubmit, reset } = useForm<MoodSubmitInterface>()
   const onSubmit: SubmitHandler<MoodSubmitInterface> = (data) => saveData(data)
 
+  console.log(localStorageMoods)
+
   const saveData = useCallback((data: MoodSubmitInterface) => {
     if (mood.mood && data) {
       const date = new Date()
       const localStorageData = JSON.parse(localStorage.getItem("mentalHealthApp")!)
-      console.log("local storage data: ", localStorageData)
       localStorageData.moods.unshift({ ...mood, text: data.text, createdAt: date, userName: localStorageData.userName })
       localStorage.setItem("mentalHealthApp", JSON.stringify(localStorageData))
       reset()
